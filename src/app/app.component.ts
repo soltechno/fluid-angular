@@ -22,6 +22,7 @@ export class AppComponent implements OnInit, OnDestroy {
   operatorId: string | null = null;
   userId: string | null = null;
   sessionId: string | null = null;
+  depositLimit: number | string = "";
   
   isOpen = false;
   
@@ -31,6 +32,7 @@ export class AppComponent implements OnInit, OnDestroy {
     this.userId = '10001';
     this.sessionId = 'a-session';
     this.bonuses = JSON.stringify([]);
+    this.depositLimit = "";
   }
 
   ngAfterViewInit() {
@@ -72,7 +74,11 @@ export class AppComponent implements OnInit, OnDestroy {
   addBonuses() {
     this.bonuses = JSON.stringify(bonusData);
   }
-  
+
+  setDepositLimit() {
+    this.depositLimit = 200;
+  }
+
   close() {
     this.isOpen = false;
   }
