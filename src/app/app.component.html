@@ -44,6 +44,12 @@
       </button>
     </div>
 
+    <div style="margin-bottom: 1rem;">
+        <button (click)="changeUser()">
+          Change user
+        </button>
+    </div>
+  
     <div *ngIf="loggedIn">
       <fluid-widget
         #fluidWidgetRef

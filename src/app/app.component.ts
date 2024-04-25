@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, AfterViewInit, ViewChild, ElementRef, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import bonusData from '../bonuses.json';
@@ -29,7 +29,7 @@ export class AppComponent implements OnInit, OnDestroy {
   
   ngOnInit() {
     this.operatorId = '10000001';
-    this.userId = '10001';
+    this.userId = '10000';
     this.sessionId = 'a-session';
     this.bonuses = JSON.stringify([]);
     this.depositLimit = "";
@@ -50,6 +50,10 @@ export class AppComponent implements OnInit, OnDestroy {
   setLoggedIn(value: boolean) {
     this.isOpen = false;
     this.loggedIn = value;
+  }
+
+  changeUser() {
+    this.userId = '10001';
   }
   
   wallet() {
@@ -84,18 +88,18 @@ export class AppComponent implements OnInit, OnDestroy {
   }
   
   onCommand(event: CustomEvent<any>) {
-    console.info(`%cFluid COMMAND: ${event.detail}`, 'color: lightgreen');
+    console.info('%cFluid COMMAND:', 'color: lightgreen', event.detail);
   
-    if (event.detail === 'close') {
+    if (event.detail.message === 'close') {
       this.close();
     }
   }
   
   onInfo(event: CustomEvent<any>) {
-    console.info(`%cFluid INFO: ${event.detail}`, 'color: cornflowerblue');
+    console.info('%cFluid INFO:', 'color: cornflowerblue', event.detail);
   }
   
   onError(event: CustomEvent<any>) {
-    console.error(`Fluid ERROR: ${event.detail}`);
+    console.error('Fluid ERROR:', event.detail);
   }
 }
