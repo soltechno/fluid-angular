@@ -35,21 +35,41 @@ export class AppComponent implements OnInit, OnDestroy {
         this.depositLimit = "";
     }
 
-    ngAfterViewInit() {
+    addEventListeners() {
         this.fluidWidgetRef.nativeElement.addEventListener('fluid-command', this.onCommand.bind(this));
         this.fluidWidgetRef.nativeElement.addEventListener('fluid-info', this.onInfo.bind(this));
         this.fluidWidgetRef.nativeElement.addEventListener('fluid-error', this.onError.bind(this));
     }
 
-    ngOnDestroy() {
+    removeEventListeners() {
         this.fluidWidgetRef.nativeElement.removeEventListener('fluid-command', this.onCommand.bind(this));
         this.fluidWidgetRef.nativeElement.removeEventListener('fluid-info', this.onInfo.bind(this));
         this.fluidWidgetRef.nativeElement.removeEventListener('fluid-error', this.onError.bind(this));
     }
 
+    ngAfterViewInit() {
+        if (this.fluidWidgetRef) {
+            this.addEventListeners();
+        }
+    }
+
+    ngOnDestroy() {
+        if (this.fluidWidgetRef) {
+            this.removeEventListeners();
+        }
+    }
+
     setLoggedIn(value: boolean) {
         this.isOpen = false;
         this.loggedIn = value;
+        if (value) {
+            setTimeout(() => {
+                this.addEventListeners();
+            });
+        }
+        else {
+            this.removeEventListeners();
+        }
     }
 
     changeUser() {
