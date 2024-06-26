@@ -6,6 +6,12 @@
         </h1>
 
         <div style="margin-bottom: 1rem;">
+            <button (click)="init()">
+                window.fluid.init
+            </button>
+        </div>
+
+        <div style="margin-bottom: 1rem;">
             <button (click)="setLoggedIn(!loggedIn)">
                 {{ loggedIn ? 'Log out' : 'Log in' }}
             </button>
@@ -31,10 +37,19 @@
                 Quick Deposit
             </button>
         </div>
-
+        
         <div style="margin-bottom: 1rem;">
             <button (click)="addBonuses()">
                 Add bonuses
+            </button>
+            <button (click)="removeBonuses()">
+                Remove bonuses
+            </button>
+        </div>
+
+        <div style="margin-bottom: 1rem;">
+            <button (click)="addSelectedBonus()">
+                Add Selected Bonus
             </button>
         </div>
 
@@ -49,14 +64,14 @@
                 Change user
             </button>
         </div>
-
         <div *ngIf="loggedIn">
             <fluid-widget #fluidWidgetRef id="fluid-widget" [attr.operator-id]="operatorId" [attr.user-id]="userId"
-                [attr.session-id]="sessionId" locale="en-NZ" currency="EUR" country="IRL" user-data="{}"
+                [attr.session-id]="sessionId" locale="en" currency="EUR" country="IRL" user-data="{}"
                 [attr.open]="isOpen" balance="1000" withdrawable-balance="900" mode="wave"
-                [attr.deposit-limit]="depositLimit" selected-bonus="" [attr.bonuses]="bonuses" success-cta-link=""
+                [attr.deposit-limit]="depositLimit" [attr.selected-bonus]="selectedBonus" [attr.bonuses]="bonuses" success-cta-link=""
                 user-agent="iOS">
             </fluid-widget>
+            <!-- <fluid-widget _ngcontent-ng-c2934785042="" id="fluid-widget" locale="en-NZ" currency="EUR" country="IRL" user-data="{}" balance="1000" withdrawable-balance="900" mode="wave" selected-bonus="" success-cta-link="" user-agent="iOS" operator-id="100540004" user-id="g9tQLccMSCuGwvFFLBnc" session-id="a-session" open="false" deposit-limit="" bonuses="[]"></fluid-widget> -->
         </div>
     </div>
 </main>

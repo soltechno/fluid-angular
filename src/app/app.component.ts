@@ -17,7 +17,8 @@ export class AppComponent implements OnInit, OnDestroy {
 
     transaction = 'deposit';
     bonuses: any = null;
-    loggedIn = true;
+    selectedBonus: string | null = null;
+    loggedIn = false;
 
     operatorId: string | null = null;
     userId: string | null = null;
@@ -25,13 +26,14 @@ export class AppComponent implements OnInit, OnDestroy {
     depositLimit: number | string = "";
 
     isOpen = false;
-
+    widgetInitialized = false;
 
     ngOnInit() {
-        this.operatorId = '10000001';
-        this.userId = '10000';
+        this.operatorId = '100540004';
+        this.userId = 'g9tQLccMSCuGwvFFLBnc';
         this.sessionId = 'a-session';
         this.bonuses = JSON.stringify([]);
+        this.selectedBonus = "";
         this.depositLimit = "";
     }
 
@@ -50,6 +52,14 @@ export class AppComponent implements OnInit, OnDestroy {
     ngAfterViewInit() {
         if (this.fluidWidgetRef) {
             this.addEventListeners();
+            this.widgetInitialized = true;
+        }
+    }
+
+    ngAfterViewChecked() {
+        if (this.loggedIn && !this.widgetInitialized && this.fluidWidgetRef) {
+            this.addEventListeners();
+            this.widgetInitialized = true;
         }
     }
 
@@ -62,6 +72,7 @@ export class AppComponent implements OnInit, OnDestroy {
     setLoggedIn(value: boolean) {
         this.isOpen = false;
         this.loggedIn = value;
+        this.widgetInitialized = false;
         if (value) {
             setTimeout(() => {
                 this.addEventListeners();
@@ -70,6 +81,17 @@ export class AppComponent implements OnInit, OnDestroy {
         else {
             this.removeEventListeners();
         }
+    }
+
+    init() {
+        window.fluid.init({
+            operatorId: 100540004,
+            userId: 'g9tQLccMSCuGwvFFLBnc',
+            sessionId: 'a-session',
+            locale: 'en',
+            countryCode: 'IRL',
+            currency: 'EUR'
+        })
     }
 
     changeUser() {
@@ -97,6 +119,14 @@ export class AppComponent implements OnInit, OnDestroy {
 
     addBonuses() {
         this.bonuses = JSON.stringify(bonusData);
+    }
+
+    removeBonuses() {
+        this.bonuses = JSON.stringify([]);
+    }
+
+    addSelectedBonus() {
+        this.selectedBonus = 'DepositBonus';
     }
 
     setDepositLimit() {
