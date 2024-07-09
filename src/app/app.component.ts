@@ -118,7 +118,9 @@ export class AppComponent implements OnInit, OnDestroy {
     }
 
     addBonuses() {
-        this.bonuses = JSON.stringify(bonusData);
+        setTimeout(() => {
+            this.bonuses = JSON.stringify(bonusData);
+        },6000);
     }
 
     removeBonuses() {
