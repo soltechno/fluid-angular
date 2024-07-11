@@ -1,64 +1,64 @@
 <main class="main">
-    <div class="container">
-        <h1>
-            <img src="assets/logo-mark-light.png" alt="Fluid" width="48" style="margin-right: 1rem;">
-            Fluid - Angular Integration
-        </h1>
+  <div class="container">
+    <h1>
+      <img src="assets/logo-mark-light.png" alt="Fluid" width="48">
+      Fluid - Angular Integration
+    </h1>
 
-        <div style="margin-bottom: 1rem;">
-            <button (click)="setLoggedIn(!loggedIn)">
-                {{ loggedIn ? 'Log out' : 'Log in' }}
-            </button>
-        </div>
-
-        <div style="margin-bottom: 1rem;">
-            <button (click)="wallet()">
-                Wallet
-            </button>
-        </div>
-        <div style="margin-bottom: 1rem;">
-            <button (click)="deposit()">
-                Deposit
-            </button>
-        </div>
-        <div style="margin-bottom: 1rem;">
-            <button (click)="withdraw()">
-                Withdrawal
-            </button>
-        </div>
-        <div style="margin-bottom: 1rem;">
-            <button (click)="quickDeposit()">
-                Quick Deposit
-            </button>
-        </div>
-
-        <div style="margin-bottom: 1rem;">
-            <button (click)="addBonuses()">
-                Add bonuses
-            </button>
-        </div>
-
-        <div style="margin-bottom: 1rem;">
-            <button (click)="setDepositLimit()">
-                Set deposit limit
-            </button>
-        </div>
-
-        <div style="margin-bottom: 1rem;">
-            <button (click)="changeUser()">
-                Change user
-            </button>
-        </div>
-
-        <div *ngIf="loggedIn">
-            <fluid-widget #fluidWidgetRef id="fluid-widget" [attr.operator-id]="operatorId" [attr.user-id]="userId"
-                [attr.session-id]="sessionId" locale="en-NZ" currency="EUR" country="IRL" user-data="{}"
-                [attr.open]="isOpen" balance="1000" withdrawable-balance="900" mode="wave"
-                [attr.deposit-limit]="depositLimit" selected-bonus="" [attr.bonuses]="bonuses" success-cta-link=""
-                user-agent="iOS">
-            </fluid-widget>
-        </div>
+    <div style="margin-bottom: 1rem;">
+      <button (click)="setLoggedIn(!loggedIn)">
+        {{ loggedIn ? 'Log out' : 'Log in' }}
+      </button>
     </div>
+
+    <div style="margin-bottom: 1rem;">
+      <button (click)="wallet()">
+        Wallet
+      </button>
+    </div>
+    <div style="margin-bottom: 1rem;">
+      <button (click)="deposit()">
+        Deposit
+      </button>
+    </div>
+    <div style="margin-bottom: 1rem;">
+      <button (click)="withdraw()">
+        Withdrawal
+      </button>
+    </div>
+    <div style="margin-bottom: 1rem;">
+      <button (click)="quickDeposit()">
+        Quick Deposit
+      </button>
+    </div>
+
+    <div style="margin-bottom: 1rem;">
+      <button (click)="addBonuses()">
+        Add bonuses
+      </button>
+    </div>
+
+    <div style="margin-bottom: 1rem;">
+      <button (click)="setDepositLimit()">
+        Set deposit limit
+      </button>
+    </div>
+
+    <div style="margin-bottom: 1rem;">
+      <button (click)="changeUser()">
+        Change user
+      </button>
+    </div>
+
+    <div *ngIf="loggedIn">
+      <fluid-widget #fluidWidgetRef id="fluid-widget" [attr.operator-id]="operatorId" [attr.user-id]="userId"
+                    [attr.session-id]="sessionId" locale="en-NZ" currency="EUR" country="IRL" user-data="{}"
+                    [attr.open]="isOpen" balance="1000" withdrawable-balance="900" mode="wave"
+                    [attr.deposit-limit]="depositLimit" selected-bonus="" [attr.bonuses]="bonuses" success-cta-link=""
+                    user-agent="iOS">
+      </fluid-widget>
+    </div>
+  </div>
 </main>
 
 <!-- If you're using Angular Router, <router-outlet> works as the placeholder for routed components -->
