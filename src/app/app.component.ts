@@ -2,11 +2,12 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef, CUSTOM_ELEMENTS_SC
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import bonusData from '../bonuses.json';
+import { HeaderComponent } from './header/header.component';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [CommonModule, RouterOutlet],
+    imports: [CommonModule, RouterOutlet, HeaderComponent],
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
