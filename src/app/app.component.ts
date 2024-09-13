@@ -3,11 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import bonusData from '../bonuses.json';
 import { HeaderComponent } from './header/header.component';
+import { HeroComponent } from './hero/hero.component';
+import { FooterComponent } from './footer/footer.component';
+import { GameBrowserComponent } from './game-browser/game-browser.component';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [CommonModule, RouterOutlet, HeaderComponent],
+    imports: [CommonModule, RouterOutlet, HeaderComponent, HeroComponent, FooterComponent, GameBrowserComponent],
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],

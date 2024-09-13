@@ -1,65 +1,73 @@
-<app-header></app-header>
+<div class="body">
+	<app-header></app-header>
+	<main>
+		<app-hero></app-hero>
+		<app-game-browser></app-game-browser>
+	</main>
+	<app-footer></app-footer>
+</div>
+
 
 <!-- <main class="main">
   <div class="container">
-    <h1>
-      <img src="assets/logo-mark-light.png" alt="Fluid" width="48">
-      Fluid - Angular Integration
-    </h1>
+	<h1>
+	  <img src="assets/logo-mark-light.png" alt="Fluid" width="48">
+	  Fluid - Angular Integration
+	</h1>
 
-    <div style="margin-bottom: 1rem;">
-      <button (click)="setLoggedIn(!loggedIn)">
-        {{ loggedIn ? 'Log out' : 'Log in' }}
-      </button>
-    </div>
+	<div style="margin-bottom: 1rem;">
+	  <button (click)="setLoggedIn(!loggedIn)">
+		{{ loggedIn ? 'Log out' : 'Log in' }}
+	  </button>
+	</div>
 
-    <div style="margin-bottom: 1rem;">
-      <button (click)="wallet()">
-        Wallet
-      </button>
-    </div>
-    <div style="margin-bottom: 1rem;">
-      <button (click)="deposit()">
-        Deposit
-      </button>
-    </div>
-    <div style="margin-bottom: 1rem;">
-      <button (click)="withdraw()">
-        Withdrawal
-      </button>
-    </div>
-    <div style="margin-bottom: 1rem;">
-      <button (click)="quickDeposit()">
-        Quick Deposit
-      </button>
-    </div>
+	<div style="margin-bottom: 1rem;">
+	  <button (click)="wallet()">
+		Wallet
+	  </button>
+	</div>
+	<div style="margin-bottom: 1rem;">
+	  <button (click)="deposit()">
+		Deposit
+	  </button>
+	</div>
+	<div style="margin-bottom: 1rem;">
+	  <button (click)="withdraw()">
+		Withdrawal
+	  </button>
+	</div>
+	<div style="margin-bottom: 1rem;">
+	  <button (click)="quickDeposit()">
+		Quick Deposit
+	  </button>
+	</div>
 
-    <div style="margin-bottom: 1rem;">
-      <button (click)="addBonuses()">
-        Add bonuses
-      </button>
-    </div>
+	<div style="margin-bottom: 1rem;">
+	  <button (click)="addBonuses()">
+		Add bonuses
+	  </button>
+	</div>
 
-    <div style="margin-bottom: 1rem;">
-      <button (click)="setDepositLimit()">
-        Set deposit limit
-      </button>
-    </div>
+	<div style="margin-bottom: 1rem;">
+	  <button (click)="setDepositLimit()">
+		Set deposit limit
+	  </button>
+	</div>
 
-    <div style="margin-bottom: 1rem;">
-      <button (click)="changeUser()">
-        Change user
-      </button>
-    </div>
+	<div style="margin-bottom: 1rem;">
+	  <button (click)="changeUser()">
+		Change user
+	  </button>
+	</div>
 
-    <div *ngIf="loggedIn">
-      <fluid-widget #fluidWidgetRef id="fluid-widget" [attr.operator-id]="operatorId" [attr.user-id]="userId"
-                    [attr.session-id]="sessionId" locale="en-NZ" currency="EUR" country="IRL" user-data="{}"
-                    [attr.open]="isOpen" balance="1000" withdrawable-balance="900" mode="wave"
-                    [attr.deposit-limit]="depositLimit" selected-bonus="" [attr.bonuses]="bonuses" success-cta-link=""
-                    user-agent="iOS">
-      </fluid-widget>
-    </div>
+	<div *ngIf="loggedIn">
+	  <fluid-widget #fluidWidgetRef id="fluid-widget" [attr.operator-id]="operatorId" [attr.user-id]="userId"
+					[attr.session-id]="sessionId" locale="en-NZ" currency="EUR" country="IRL" user-data="{}"
+					[attr.open]="isOpen" balance="1000" withdrawable-balance="900" mode="wave"
+					[attr.deposit-limit]="depositLimit" selected-bonus="" [attr.bonuses]="bonuses" success-cta-link=""
+					user-agent="iOS">
+	  </fluid-widget>
+	</div>
   </div>
 </main> -->
 
