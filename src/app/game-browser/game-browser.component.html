@@ -1,0 +1,41 @@
+<main>
+  <section class="browser">
+    <header>
+      <h2>New game</h2>
+      <p>View all</p>
+    </header>
+    <ul class="browser__row" role="list">
+      <li *ngFor="let item of itemsNew; let i = index">
+        <a routerLink="GameplayComponent" id="item{{i + 1}}">
+          <img [src]="item.image" alt="Game {{i + 1}}">
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <header>
+      <h2>Popular</h2>
+      <p>View all</p>
+    </header>
+    <ul class="browser__row" role="list">
+      <li *ngFor="let item of itemsPopular; let i = index">
+        <a routerLink="GameplayComponent" id="item{{i + 1}}">
+          <img [src]="item.image" alt="Game {{i + 1}}">
+        </a>
+      </li>
+    </ul>
+  </section>
+  <section>
+    <header>
+      <h2>Slot</h2>
+      <p>View all</p>
+    </header>
+    <ul class="browser__row" role="list">
+      <li *ngFor="let item of itemsSlot; let i = index">
+        <a routerLink="GameplayComponent" id="item{{i + 1}}">
+          <img [src]="item.image" alt="Game {{i + 1}}">
+        </a>
+      </li>
+    </ul>
+  </section>
+</main>

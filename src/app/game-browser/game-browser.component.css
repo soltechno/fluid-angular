@@ -1,0 +1,65 @@
+main {
+  padding-block: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px
+}
+
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  margin-block-end: 10px;
+
+  h2 {
+      color: #121926;
+      text-transform: uppercase;
+  }
+
+  p {
+    color: #7A7E85;
+  }
+}
+
+:is(h2,p) {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+
+
+.browser {
+
+}
+
+.browser__row {
+  display: flex;
+  gap: 8px;
+  padding-inline-start: 16px;
+  overflow-x: scroll;
+  scrollbar-width: none;
+  ::-webkit-scrollbar {
+      display: none;
+      /* Safari and Chrome */
+  }
+
+  li {
+    flex: 1;
+
+  }
+
+  a {
+    block-size: 126px;
+    inline-size: 96px;
+    display: block;
+  }
+
+  img {
+    border-radius: 12px;
+  }
+}
+
+
