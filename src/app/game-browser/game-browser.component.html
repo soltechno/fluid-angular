@@ -1,41 +1,85 @@
 <main>
-  <section class="browser">
-    <header>
-      <h2>New game</h2>
-      <p>View all</p>
-    </header>
-    <ul class="browser__row" role="list">
-      <li *ngFor="let item of itemsNew; let i = index">
-        <a routerLink="GameplayComponent" id="item{{i + 1}}">
-          <img [src]="item.image" alt="Game {{i + 1}}">
-        </a>
-      </li>
-    </ul>
-  </section>
-  <section>
-    <header>
-      <h2>Popular</h2>
-      <p>View all</p>
-    </header>
-    <ul class="browser__row" role="list">
-      <li *ngFor="let item of itemsPopular; let i = index">
-        <a routerLink="GameplayComponent" id="item{{i + 1}}">
-          <img [src]="item.image" alt="Game {{i + 1}}">
-        </a>
-      </li>
-    </ul>
-  </section>
-  <section>
-    <header>
-      <h2>Slot</h2>
-      <p>View all</p>
-    </header>
-    <ul class="browser__row" role="list">
-      <li *ngFor="let item of itemsSlot; let i = index">
-        <a routerLink="GameplayComponent" id="item{{i + 1}}">
-          <img [src]="item.image" alt="Game {{i + 1}}">
-        </a>
-      </li>
-    </ul>
-  </section>
+	<section class="browser">
+		<header>
+			<h2>New game</h2>
+			<p>View all</p>
+		</header>
+		<ul class="browser__row" role="list">
+			<li *ngFor="let item of itemsNew; let i = index">
+				<a routerLink="gameplay" id="item{{i + 1}}">
+					<img [src]="item.image" alt="Game {{i + 1}}">
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" class="play">
+						<rect width="32" height="32" fill="#121926" rx="16" />
+						<path fill="#fff" fill-rule="evenodd"
+							  d="M11.68 9.415a.667.667 0 0 1 .68.024l9.334 6a.667.667 0 0 1 0 1.122l-9.333 6A.667.667 0 0 1 11.332 22V10c0-.244.133-.468.348-.585Zm.987 1.806v9.558l7.434-4.78-7.434-4.778Z"
+							  clip-rule="evenodd" />
+					</svg>
+				</a>
+			</li>
+			<button type="button" class="next">
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">
+					<rect width="32" height="32" fill="#121926" rx="16" />
+					<path fill="#fff" fill-rule="evenodd"
+						  d="M16.471 10.862a.667.667 0 0 0-.942.943l3.528 3.528h-7.724a.667.667 0 0 0 0 1.334h7.724l-3.528 3.528a.667.667 0 0 0 .942.943l4.667-4.667a.667.667 0 0 0 0-.942l-4.667-4.667Z"
+						  clip-rule="evenodd" />
+				</svg>
+			</button>
+		</ul>
+	</section>
+
+	<section>
+		<header>
+			<h2>Popular</h2>
+			<p>View all</p>
+		</header>
+		<ul class="browser__row" role="list">
+			<li *ngFor="let item of itemsPopular; let i = index">
+				<a routerLink="gameplay" id="item{{i + 1}}">
+					<img [src]="item.image" alt="Game {{i + 1}}">
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" class="play">
+						<rect width="32" height="32" fill="#121926" rx="16" />
+						<path fill="#fff" fill-rule="evenodd"
+							  d="M11.68 9.415a.667.667 0 0 1 .68.024l9.334 6a.667.667 0 0 1 0 1.122l-9.333 6A.667.667 0 0 1 11.332 22V10c0-.244.133-.468.348-.585Zm.987 1.806v9.558l7.434-4.78-7.434-4.778Z"
+							  clip-rule="evenodd" />
+					</svg>
+				</a>
+			</li>
+			<button type="button" class="next">
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">
+					<rect width="32" height="32" fill="#121926" rx="16" />
+					<path fill="#fff" fill-rule="evenodd"
+						  d="M16.471 10.862a.667.667 0 0 0-.942.943l3.528 3.528h-7.724a.667.667 0 0 0 0 1.334h7.724l-3.528 3.528a.667.667 0 0 0 .942.943l4.667-4.667a.667.667 0 0 0 0-.942l-4.667-4.667Z"
+						  clip-rule="evenodd" />
+				</svg>
+			</button>
+		</ul>
+	</section>
+
+	<section>
+		<header>
+			<h2>Slot</h2>
+			<p>View all</p>
+		</header>
+		<ul class="browser__row" role="list">
+			<li *ngFor="let item of itemsSlot; let i = index">
+				<a routerLink="gameplay" id="item{{i + 1}}">
+					<img [src]="item.image" alt="Game {{i + 1}}">
+					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" class="play">
+						<rect width="32" height="32" fill="#121926" rx="16" />
+						<path fill="#fff" fill-rule="evenodd"
+							  d="M11.68 9.415a.667.667 0 0 1 .68.024l9.334 6a.667.667 0 0 1 0 1.122l-9.333 6A.667.667 0 0 1 11.332 22V10c0-.244.133-.468.348-.585Zm.987 1.806v9.558l7.434-4.78-7.434-4.778Z"
+							  clip-rule="evenodd" />
+					</svg>
+				</a>
+			</li>
+			<button type="button" class="next">
+				<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none">
+					<rect width="32" height="32" fill="#121926" rx="16" />
+					<path fill="#fff" fill-rule="evenodd"
+						  d="M16.471 10.862a.667.667 0 0 0-.942.943l3.528 3.528h-7.724a.667.667 0 0 0 0 1.334h7.724l-3.528 3.528a.667.667 0 0 0 .942.943l4.667-4.667a.667.667 0 0 0 0-.942l-4.667-4.667Z"
+						  clip-rule="evenodd" />
+				</svg>
+			</button>
+		</ul>
+	</section>
 </main>

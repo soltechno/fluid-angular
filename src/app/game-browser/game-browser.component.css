@@ -1,65 +1,106 @@
 main {
-  padding-block: 22px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px
+	padding-block: 22px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px
 }
 
 
 header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
-  margin-block-end: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 16px;
+	margin-block-end: 10px;
 
-  h2 {
-      color: #121926;
-      text-transform: uppercase;
-  }
+	h2 {
+		text-transform: uppercase;
+	}
 
   p {
-    color: #7A7E85;
+	color: var(--text-color-secondary);
   }
 }
 
 :is(h2,p) {
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 16px;
-}
-
-
-
-.browser {
-
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 16px;
 }
 
 .browser__row {
-  display: flex;
-  gap: 8px;
-  padding-inline-start: 16px;
-  overflow-x: scroll;
-  scrollbar-width: none;
-  ::-webkit-scrollbar {
-      display: none;
-      /* Safari and Chrome */
-  }
+	display: flex;
+	gap: 8px;
+	padding-inline-start: 16px;
+	position: relative; /*  To set the position of the next and previous buttons */
+	overflow-x: scroll;
+	scrollbar-width: none;
+	::-webkit-scrollbar {
+		display: none;
+	}
 
-  li {
-    flex: 1;
+	li {
+		flex: 1;
+	}
 
-  }
+	a {
+		block-size: 126px;
+		inline-size: 96px;
+		display: block;
+		position: relative; /*/ to set the svg position */
 
-  a {
-    block-size: 126px;
-    inline-size: 96px;
-    display: block;
-  }
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			border-radius: 12px;
+			background-color: rgba(var(--color-overlay), 0.6);
+			opacity: 0;
+			transition: var(--transition-fade);
+		}
 
-  img {
-    border-radius: 12px;
-  }
+		&:hover {
+			&::after {
+				opacity: 1;
+			}
+			svg {
+				opacity: 1;
+			}
+		}
+
+		@media (min-width:961px) {
+			block-size: 162px;
+			inline-size: 124px;
+		}
+	}
+
+	img {
+		border-radius: 12px;
+		block-size: 100%;;
+	}
+
+	.play {
+		display: block;
+		position: absolute;
+		z-index: 2;
+		inset: 50% 0 0 50%;
+		transform: translate(-50%, -50%);
+		opacity: 0;
+		transition: var(--transition-fade);
+	}
+
+	:is(.next, .previous) {
+		display: block;
+		inline-size: 32px;
+		block-size: 32px;
+		position: absolute;
+		inset-block-start: 50%;
+		transform: translate(0, -50%);
+	}
+
+	.next {
+		inset-inline: auto 8px;
+	}
 }
 
 

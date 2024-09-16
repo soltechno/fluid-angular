@@ -6,20 +6,24 @@ import { HeaderComponent } from './header/header.component';
 import { HeroComponent } from './hero/hero.component';
 import { GameBrowserComponent } from './game-browser/game-browser.component';
 import { FooterComponent } from './footer/footer.component';
+import { GameplayComponent } from './gameplay/gameplay.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    HeroComponent,
-    GameBrowserComponent,
-    FooterComponent
-  ],
-  imports: [
-    BrowserModule,
-    CommonModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent, HeaderComponent]
+	declarations: [
+		AppComponent,
+		HeaderComponent,
+		HeroComponent,
+		GameBrowserComponent,
+		FooterComponent,
+		GameplayComponent,
+		HomeComponent
+	],
+	imports: [
+		BrowserModule,
+		CommonModule
+	],
+	providers: [],
+	bootstrap: [AppComponent, HeaderComponent]
 })
 export class AppModule { }

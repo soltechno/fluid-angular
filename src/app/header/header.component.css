@@ -1,7 +1,8 @@
 header {
-	background-color: #fff;
+	background-color: var(--base-bg);
 	position: sticky;
 	top: 0;
+	z-index: 3;
 
 	@media (min-width:961px) {
 		block-size: 100%;
@@ -53,7 +54,7 @@ header {
 }
 
 dl {
-	color:#121926;
+	color: var(--text-color-primary);
 	font-size: 12px;
 	display: grid;
 	grid-gap: 2px 4px;
@@ -69,6 +70,7 @@ dt {
 
 	@media (min-width:961px) {
 		text-align: left;
+		color: var(--text-color-secondary);
 	}
 
 	&.small {
@@ -84,7 +86,7 @@ dt {
 		color: #fff;
 
 		@media (min-width:961px) {
-			color: #121926;
+			color: var(--text-color-secondary);
 		}
 	}
 }
@@ -109,8 +111,8 @@ dd {
 
 .cta {
 	border-radius: 38px;
-	background-color: #121926;
-	color: #fff;
+	background-color: var(--button-bg-color);
+	color: var(--button-color);
 	padding: 8px 22px;
 	font-weight: 700;
 	font-size: 12px;
@@ -152,7 +154,7 @@ nav {
 		gap: 12px;
 		font-weight: 700;
 		font-size: 14px;
-		color: #4B5565;
+		color: var(--text-color-secondary);
 		block-size: 40px;
 	}
 }
@@ -175,14 +177,14 @@ footer {
 	& p {
 		font-size: 14px;
 		font-weight: 700;
-		color: #4B5565;
+		color: var(--text-color-secondary);
 	}
 }
 
 .help {
 	border-radius: 32px;
 	background-color: #DDE8F5;
-	color: #121926;
+	color: var(--text-color-primary);
 	font-weight: 600;
 	font-size: 12px;
 	display: inline-flex;

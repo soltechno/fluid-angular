@@ -13,7 +13,7 @@ section {
 }
 
 div {
-	background-color: #022B5C99;
+	background-color: rgba(var(--color-overlay), 0.6);
 	border-radius: 20px;
 	color: #fff;
 	padding: 32px 35px;
@@ -46,8 +46,14 @@ button {
 	padding: 14px 0;
 	inline-size: 100%;
 	margin-block-end: 10px;
-	background-color: #121926;
+	background-color: var(--button-bg-color);
+	color: var(--button-color);
 	border-radius: 100px;
+	transition: var(--transition-background);
+
+	&:hover {
+		background-color: var(--button-bg-color-hover);
+	}
 }
 
 p {
