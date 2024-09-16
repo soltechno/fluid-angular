@@ -1,14 +1,22 @@
 import { Component, OnInit, OnDestroy, ViewChild, ElementRef, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { Router, NavigationEnd, Event as RouterEvent, RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { filter } from 'rxjs/operators';
 import bonusData from '../bonuses.json';
-import { HomeComponent } from './home/home.component';
-import { GameBrowserComponent } from './game-browser/game-browser.component';
+import { HeaderComponent } from './core/header/header.component';
+import { FooterComponent } from './core/footer/footer.component';
 
 @Component({
 	selector: 'app-root',
 	standalone: true,
-	imports: [CommonModule, RouterOutlet, RouterLink, RouterLinkActive, HomeComponent,  GameBrowserComponent],
+	imports: [
+		CommonModule,
+		RouterOutlet,
+		RouterLink,
+		RouterLinkActive,
+		HeaderComponent,
+		FooterComponent
+	],
 	templateUrl: './app.component.html',
 	styleUrls: ['./app.component.css'],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -30,6 +38,10 @@ export class AppComponent implements OnInit, OnDestroy {
 	inputPlaceholder: string = '#C9D0DA';
 	pillBg: string = '#F8F8F8';
 
+	currentPage: string = '';
+
+	constructor(private router: Router) {}
+
 	@ViewChild('fluidWidgetRef') fluidWidgetRef!: ElementRef;
 
 	transaction = 'deposit';
@@ -45,6 +57,15 @@ export class AppComponent implements OnInit, OnDestroy {
 
 
 	ngOnInit() {
+		// Set the current page based on the URL to the body class
+		this.router.events
+			.pipe(
+				filter((event: RouterEvent): event is NavigationEnd => event instanceof NavigationEnd)
+			)
+			.subscribe((event: NavigationEnd) => {
+				const navigationEndEvent = event;
+				this.currentPage = event.urlAfterRedirects.split('/').pop() || 'home';
+			});
 		this.operatorId = '10000001';
 		this.userId = '10000';
 		this.sessionId = 'a-session';

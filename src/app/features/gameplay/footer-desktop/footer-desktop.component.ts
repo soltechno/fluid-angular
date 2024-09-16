@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-	selector: 'app-gameplay-footer-desktop',
+	selector: 'app-footer-desktop',
 	standalone: true,
 	imports: [CommonModule],
-	templateUrl: './gameplay-footer-desktop.component.html',
-	styleUrl: './gameplay-footer-desktop.component.css'
+	templateUrl: './footer-desktop.component.html',
+	styleUrl: './footer-desktop.component.css'
 })
-export class GameplayFooterDesktopComponent {
+export class FooterDesktopComponent {
 	desktopGenre = [
 		'Recently played',
 		'New games',

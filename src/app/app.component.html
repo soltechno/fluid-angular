@@ -1,5 +1,6 @@
 <div
 	 class="body"
+	 [ngClass]="currentPage"
 	 [style.--button-bg-color]="buttonBgColor"
 	 [style.--button-bg-color-hover]="buttonBgColorHover"
 	 [style.--button-color]="buttonColor"
@@ -12,12 +13,12 @@
 	 [style.--input-border]="inputBorder"
 	 [style.--input-placeholder]="inputPlaceholder"
 	 [style.--pills-bg]="pillBg">
-	<router-outlet></router-outlet>
+	<app-header></app-header>
+	<main>
+		<router-outlet></router-outlet>
+	</main>
+	<app-footer></app-footer>
 </div>
-
-<!-- If you're using Angular Router, <router-outlet> works as the placeholder for routed components -->
-<!-- <router-outlet></router-outlet> -->
-
 
 <!-- <main class="main">
   <div class="container">

@@ -42,6 +42,14 @@ header {
 	}
 }
 
+:host-context(.gameplay) .logo {
+	@media (min-width:961px) {
+		background-image: url('/assets/logos/logo-stacked-light.svg');
+		inline-size: 52px;
+		block-size: 49px;
+	}
+}
+
 .tools {
 	display: flex;
 	gap: 12px;
@@ -64,6 +72,11 @@ dl {
 		font-size: 14px;
 	}
 }
+
+:host-context(.gameplay) dl {
+	display: none;
+}
+
 dt {
 	font-weight: 400;
 	text-align: right;
