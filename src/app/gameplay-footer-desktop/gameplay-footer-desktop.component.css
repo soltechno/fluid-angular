@@ -1,0 +1,20 @@
+footer {
+	display: none;
+
+	@media (min-width:961px) {
+		display: flex;
+		background-color: var(--base-bg);
+	}
+}
+
+ul {
+	display: flex;
+
+	a {
+		font-weight: 700;
+		font-size: 12px;
+		line-height: 16px;
+		color: var(--text-color-secondary);
+		padding: 8px 12px;
+	}
+}

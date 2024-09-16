@@ -1,0 +1,18 @@
+@media (min-width:961px) {
+	.layout {
+		display: grid;
+		grid-template-columns: 104px 1fr;
+		background-color: var(--zero-bg);
+	}
+
+	.content {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.game-wrapper {
+		padding-inline: 100px;
+		margin-block-end: auto; /* To set the navigation at the bottom */
+	}
+}
+
