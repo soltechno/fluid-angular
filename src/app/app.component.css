@@ -20,12 +20,3 @@
 		}
 	}
 }
-
-@media (min-width:961px) {
-	main {
-		max-inline-size: 1100px;
-		padding-block-start: 16px;
-		padding-inline: 32px;
-		margin-inline: auto;
-	}
-}
