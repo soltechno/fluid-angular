@@ -13,8 +13,8 @@ ul {
 	a {
 		font-weight: 700;
 		font-size: 12px;
-		line-height: 16px;
+		line-height: 33px;
 		color: var(--text-color-secondary);
-		padding: 8px 12px;
+		padding-inline: 12px;
 	}
 }
