@@ -15,7 +15,7 @@
 	 [style.--pills-bg]="pillBg"
 	 [style.--color-card-start]="colorCardStart"
 	 [style.--color-card-stop]="colorCardStop">
-	<app-header (walletClicked)="wallet()"></app-header>
+	<app-header (walletClicked)="deposit()"></app-header>
 	<main>
 		<router-outlet (activate)="onActivate($event)"></router-outlet>
 	</main>
