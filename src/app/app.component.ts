@@ -74,6 +74,7 @@ export class AppComponent implements OnInit, OnDestroy {
 		this.sessionId = 'a-session';
 		this.bonuses = JSON.stringify([]);
 		this.depositLimit = "";
+		this.transaction = "";
 	}
 
 	// Set emit events for the child components
