@@ -9,6 +9,10 @@ section {
 	gap: 16px
 }
 
+.browser {
+	position: relative; /*  To set the position of the next and previous buttons */
+}
+
 
 header {
 	display: flex;
@@ -105,19 +109,21 @@ header {
 		opacity: 0;
 		transition: var(--transition-fade);
 	}
+}
 
-	:is(.next, .previous) {
-		display: block;
-		inline-size: 32px;
-		block-size: 32px;
-		position: absolute;
-		inset-block-start: 50%;
-		transform: translate(0, -50%);
-	}
+:is(.next, .previous) {
+	display: block;
+	inline-size: 32px;
+	block-size: 32px;
+	position: absolute;
+	inset: 26px 0 0 auto;
+	block-size: calc(100% - 26px);
+	inline-size: 46px;
+}
 
-	.next {
-		inset-inline: auto 8px;
-	}
+.next {
+	inset-inline: auto 0;
+	background: linear-gradient(270deg, rgba(2, 43, 92, 0.6) 0%, rgba(2, 43, 92, 0) 100%);
 }
 
 

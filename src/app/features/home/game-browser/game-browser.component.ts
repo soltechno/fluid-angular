@@ -10,27 +10,41 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 	styleUrl: './game-browser.component.css'
 })
 export class GameBrowserComponent {
-	itemsNew = Array.from({ length: 22 }, () => {
-		const randomIndex = Math.floor(Math.random() * 22) + 1;
-		return {
+	itemsNew: { link: string; image: string }[] = [];
+	itemsPopular: { link: string; image: string }[] = [];
+	itemsSlot: { link: string; image: string }[] = [];
+
+	constructor() {
+		this.initializeItems();
+	}
+
+	private shuffle(array: string[]): string[] {
+		for (let i = array.length - 1; i > 0; i--) {
+			const j = Math.floor(Math.random() * (i + 1));
+			[array[i], array[j]] = [array[j], array[i]];
+		}
+		return array;
+	}
+
+	private initializeItems(): void {
+		const numbers: string[] = Array.from({ length: 22 }, (_, i) => (i + 1).toString());
+		const shuffledNumbersNew: string[] = this.shuffle([...numbers]);
+		const shuffledNumbersPopular: string[] = this.shuffle([...numbers]);
+		const shuffledNumbersSlot: string[] = this.shuffle([...numbers]);
+
+		this.itemsNew = shuffledNumbersNew.map((num: string) => ({
 			link: `GameplayComponent`,
-			image: `/assets/thumbnails/${randomIndex}.jpg`
-		};
-	});
+			image: `/assets/thumbnails/${num}.jpg`
+		}));
 
-	itemsPopular = Array.from({ length: 22 }, () => {
-		const randomIndex = Math.floor(Math.random() * 22) + 1;
-		return {
-			link: 'GameplayComponent',
-			image: `/assets/thumbnails/${randomIndex}.jpg`
-		};
-	});
+		this.itemsPopular = shuffledNumbersPopular.map((num: string) => ({
+			link: `GameplayComponent`,
+			image: `/assets/thumbnails/${num}.jpg`
+		}));
 
-	itemsSlot = Array.from({ length: 22 }, () => {
-		const randomIndex = Math.floor(Math.random() * 22) + 1;
-		return {
-			link: 'GameplayComponent',
-			image: `/assets/thumbnails/${randomIndex}.jpg`
-		};
-	});
+		this.itemsSlot = shuffledNumbersSlot.map((num: string) => ({
+			link: `GameplayComponent`,
+			image: `/assets/thumbnails/${num}.jpg`
+	}));
+	}
 }
