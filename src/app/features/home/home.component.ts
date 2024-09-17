@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeroComponent } from './hero/hero.component';
 import { GameBrowserComponent } from './game-browser/game-browser.component';
@@ -15,5 +15,9 @@ import { GameBrowserComponent } from './game-browser/game-browser.component';
 	styleUrl: './home.component.css'
 })
 export class HomeComponent {
+	@Output() claimBonusClicked = new EventEmitter<void>();
 
+	onClaimBonusClick() {
+		this.claimBonusClicked.emit();
+	}
 }

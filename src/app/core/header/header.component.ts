@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Output, EventEmitter } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -9,6 +9,14 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 	styleUrl: './header.component.css'
 })
 export class HeaderComponent implements OnInit, OnDestroy {
+	// Output event emitter for wallet click
+	@Output() walletClicked = new EventEmitter<void>();
+
+	onWalletClick() {
+		this.walletClicked.emit();
+	}
+
+	// Set the current time
 	currentTime: string = '';
 	private intervalId: any;
 

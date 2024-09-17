@@ -15,11 +15,21 @@
 	 [style.--pills-bg]="pillBg"
 	 [style.--color-card-start]="colorCardStart"
 	 [style.--color-card-stop]="colorCardStop">
-	<app-header></app-header>
+	<app-header (walletClicked)="wallet()"></app-header>
 	<main>
-		<router-outlet></router-outlet>
+		<router-outlet (activate)="onActivate($event)"></router-outlet>
 	</main>
 	<app-footer></app-footer>
+
+	<div *ngIf="loggedIn">
+		<fluid-widget
+					  #fluidWidgetRef id="fluid-widget" [attr.operator-id]="operatorId" [attr.user-id]="userId"
+					  [attr.session-id]="sessionId" locale="en-NZ" currency="EUR" country="IRL" user-data="{}"
+					  [attr.open]="isOpen" balance="1000" withdrawable-balance="900" mode="wave"
+					  [attr.deposit-limit]="depositLimit" selected-bonus="" [attr.bonuses]="bonuses" success-cta-link=""
+					  user-agent="iOS">
+		</fluid-widget>
+	</div>
 </div>
 
 <!-- <main class="main">

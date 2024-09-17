@@ -40,9 +40,10 @@ export class AppComponent implements OnInit, OnDestroy {
 	colorCardStart: string = '#BD63AF';
 	colorCardStop: string = '#1B86D4';
 
+	// Set the current page based on the URL
 	currentPage: string = '';
+	constructor(private router: Router) { }
 
-	constructor(private router: Router) {}
 
 	@ViewChild('fluidWidgetRef') fluidWidgetRef!: ElementRef;
 
@@ -73,6 +74,27 @@ export class AppComponent implements OnInit, OnDestroy {
 		this.sessionId = 'a-session';
 		this.bonuses = JSON.stringify([]);
 		this.depositLimit = "";
+	}
+
+	// Set emit events for the child components
+	onActivate(component: any) {
+		if (component.claimBonusClicked) {
+			component.claimBonusClicked.subscribe(() => {
+				this.onClaimBonusClick();
+			});
+		}
+
+		if (component.quickDepositClicked) {
+			component.quickDepositClicked.subscribe(() => {
+				this.quickDeposit();
+			});
+		}
+	}
+
+	// Get the event from the hero component
+	onClaimBonusClick() {
+		console.log('Claim Bonus button clicked in home component, YES');
+		// Add your logic here
 	}
 
 	addEventListeners() {

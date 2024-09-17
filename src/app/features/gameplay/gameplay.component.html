@@ -1,8 +1,8 @@
 <section class="content">
 	<div class="game-wrapper container">
-		<app-tools></app-tools>
+		<app-tools (quickDepositClicked)="onQuickDepositClick()"></app-tools>
 		<app-game></app-game>
 	</div>
-	<app-footer-mobile></app-footer-mobile>
+	<app-footer-mobile (quickDepositClicked)="onQuickDepositClick()"></app-footer-mobile>
 	<app-footer-desktop></app-footer-desktop>
 </section>

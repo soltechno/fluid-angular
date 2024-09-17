@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-hero',
@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './hero.component.css'
 })
 export class HeroComponent {
+	// Output event emitter for claim bonus click
+	@Output() claimBonusClicked = new EventEmitter<void>();
 
+	onClaimBonusClick() {
+		this.claimBonusClicked.emit();
+	}
 }

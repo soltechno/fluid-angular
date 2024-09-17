@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GameComponent } from './game/game.component';
 import { FooterMobileComponent } from './footer-mobile/footer-mobile.component';
@@ -20,5 +20,9 @@ import { ToolsComponent } from './tools/tools.component';
 })
 
 export class GameplayComponent {
+	@Output() quickDepositClicked = new EventEmitter<void>();
 
+	onQuickDepositClick() {
+		this.quickDepositClicked.emit();
+	}
 }

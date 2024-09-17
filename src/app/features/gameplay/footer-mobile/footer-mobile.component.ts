@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -10,5 +10,10 @@ import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 })
 
 export class FooterMobileComponent {
+	// Output event emitter for wallet click
+	@Output() quickDepositClicked = new EventEmitter<void>();
 
+	onQuickDepositClick() {
+		this.quickDepositClicked.emit();
+	}
 }

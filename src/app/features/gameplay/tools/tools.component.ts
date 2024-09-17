@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-tools',
@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './tools.component.css'
 })
 export class ToolsComponent {
+	// Output event emitter for wallet click
+	@Output() quickDepositClicked = new EventEmitter<void>();
 
+	onQuickDepositClick() {
+		this.quickDepositClicked.emit();
+	}
 }
