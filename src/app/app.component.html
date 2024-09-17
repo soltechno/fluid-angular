@@ -15,7 +15,7 @@
 	 [style.--pills-bg]="pillBg"
 	 [style.--color-card-start]="colorCardStart"
 	 [style.--color-card-stop]="colorCardStop">
-	<app-header (walletClicked)="deposit()"></app-header>
+	<app-header [balance]="balance" (walletClicked)="deposit()"></app-header>
 	<main>
 		<router-outlet (activate)="onActivate($event)"></router-outlet>
 	</main>
@@ -23,11 +23,23 @@
 
 	<div *ngIf="loggedIn">
 		<fluid-widget
-					  #fluidWidgetRef id="fluid-widget" [attr.operator-id]="operatorId" [attr.user-id]="userId"
-					  [attr.session-id]="sessionId" locale="en-NZ" currency="EUR" country="IRL" user-data="{}"
-					  [attr.open]="isOpen" balance="1000" withdrawable-balance="900" mode="wave"
-					  [attr.deposit-limit]="depositLimit" selected-bonus="" [attr.bonuses]="bonuses" success-cta-link=""
-					  user-agent="iOS" [attr.transaction]="transaction">
+					  #fluidWidgetRef id="fluid-widget"
+					  [attr.operator-id]="operatorId"
+					  [attr.user-id]="userId"
+					  [attr.session-id]="sessionId"
+					  locale="en-NZ"
+					  currency="EUR"
+					  country="IRL"
+					  user-data="{}"
+					  [attr.open]="isOpen"
+					  [attr.balance]="balance"
+					  withdrawable-balance="900"
+					  [attr.deposit-limit]="depositLimit"
+					  selected-bonus=""
+					  [attr.bonuses]="bonuses"
+					  success-cta-link=""
+					  user-agent="iOS"
+					  [attr.transaction]="transaction">
 		</fluid-widget>
 	</div>
 </div>

@@ -50,11 +50,11 @@ export class AppComponent implements OnInit, OnDestroy {
 	transaction = 'deposit';
 	bonuses: any = null;
 	loggedIn = true;
-
 	operatorId: string | null = null;
 	userId: string | null = null;
 	sessionId: string | null = null;
 	depositLimit: number | string = "";
+	balance: number = 1000;
 
 	isOpen = false;
 
