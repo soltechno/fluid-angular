@@ -37,6 +37,8 @@ export class AppComponent implements OnInit, OnDestroy {
 	inputBorder: string = '#CDD5DF';
 	inputPlaceholder: string = '#C9D0DA';
 	pillBg: string = '#F8F8F8';
+	colorCardStart: string = '#BD63AF';
+	colorCardStop: string = '#1B86D4';
 
 	currentPage: string = '';
 
