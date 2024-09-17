@@ -1,4 +1,8 @@
-main {
+:host {
+	display: block;
+}
+
+section {
 	padding-block: 22px;
 	display: flex;
 	flex-direction: column;
@@ -12,6 +16,10 @@ header {
 	justify-content: space-between;
 	padding: 0 16px;
 	margin-block-end: 10px;
+
+	@media (min-width:961px) {
+		padding: 0;
+	}
 
 	h2 {
 		text-transform: uppercase;
@@ -30,17 +38,26 @@ header {
 
 .browser__row {
 	display: flex;
+	flex-wrap: nowrap;
+	overflow: auto;
 	gap: 8px;
 	padding-inline-start: 16px;
 	position: relative; /*  To set the position of the next and previous buttons */
-	overflow-x: scroll;
+	/* overflow-x: scroll; */
 	scrollbar-width: none;
+	scroll-snap-type: x proximity;
+
 	::-webkit-scrollbar {
 		display: none;
 	}
 
+	@media (min-width:961px) {
+		padding-inline-start: 0;
+	}
+
 	li {
-		flex: 1;
+		flex: 0 0 auto;
+		scroll-snap-align: center;
 	}
 
 	a {

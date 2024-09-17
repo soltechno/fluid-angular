@@ -151,9 +151,28 @@ a {
 	text-decoration: none;
 }
 
-/* .container {
-  inline-size: min(100% - 2 * 16px, 1100px);
-  margin-inline: auto;
-} */
+.visually-hidden {
+	position: absolute;
+
+	inline-size: 1px;
+	block-size: 1px;
+
+	white-space: nowrap;
+
+	overflow: hidden;
+
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+}
+
+.container {
+	inline-size: 100%;
+	max-inline-size: 1164px;
+	margin-inline: auto;
+
+	@media (min-width:961px) {
+		padding-inline: 32px;
+	}
+}
 
 
