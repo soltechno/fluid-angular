@@ -1,14 +1,22 @@
 section {
-	background-image: url('/assets/hero/hero-mobile.webp');
-	background-size: cover;
+	/* background-image: url('/assets/hero/icons.webp'); */
+
 	display: flex;
 	place-content: center;
 	padding: 45px 55px;
+	background:
+		url('/assets/hero/icons.webp'),
+		linear-gradient(108.44deg, var(--color-card-start) 3.14%, var(--color-card-stop) 100.24%);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
 
 	@media (min-width:961px) {
 		border-radius: 30px;
 		padding: 65px 0;
-		background-image: url('/assets/hero/hero-desktop.webp');
+		margin-block-start: 16px;
+		background-size: 50% 100%, 100% 100%;
 	}
 }
 
