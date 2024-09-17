@@ -12,7 +12,7 @@
 
 	@media (min-width:961px) {
 		display: grid;
-		grid-template-columns: 230px 1fr;
+		grid-template-columns: 230px minmax(0, 1fr);
 		grid-template-rows: auto 0;
 
 		&.gameplay {
