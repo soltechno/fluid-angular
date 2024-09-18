@@ -72,7 +72,7 @@ export class AppComponent implements OnInit, OnDestroy {
 		this.operatorId = '10000001';
 		this.userId = '10000';
 		this.sessionId = 'a-session';
-		this.bonuses = JSON.stringify([]);
+		this.bonuses = JSON.stringify(bonusData);
 		this.depositLimit = "";
 		this.transaction = "";
 	}
