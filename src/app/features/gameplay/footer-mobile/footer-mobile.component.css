@@ -15,8 +15,6 @@ footer {
 
 button {
 	border-radius: 38px;
-	background-color: var(--button-bg-color);
-	color: var(--button-color);
 	padding: 6px 16px;
 	font-weight: 700;
 	font-size: 11px;
