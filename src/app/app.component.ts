@@ -58,7 +58,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
 	isOpen = false;
 
-
 	ngOnInit() {
 		// Set the current page based on the URL to the body class
 		this.router.events
@@ -69,6 +68,7 @@ export class AppComponent implements OnInit, OnDestroy {
 				const navigationEndEvent = event;
 				this.currentPage = event.urlAfterRedirects.split('/').pop() || 'home';
 			});
+		// Binding the wallet attributes
 		this.operatorId = '10000001';
 		this.userId = '10000';
 		this.sessionId = 'a-session';
@@ -93,9 +93,13 @@ export class AppComponent implements OnInit, OnDestroy {
 	}
 
 	// Get the event from the hero component
+	// Preselect the first bonus, load the bonuses and call the deposit method
 	onClaimBonusClick() {
-		console.log('Claim Bonus button clicked in home component, YES');
-		// Add your logic here
+		if (Array.isArray(bonusData) && bonusData.length > 0) {
+			(bonusData[0] as any).selected = true;
+			this.bonuses = JSON.stringify(bonusData);
+			this.deposit();
+		}
 	}
 
 	addEventListeners() {
