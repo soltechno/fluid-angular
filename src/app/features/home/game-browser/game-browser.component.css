@@ -47,11 +47,10 @@ header {
 	gap: 8px;
 	padding-inline-start: 16px;
 	position: relative; /*  To set the position of the next and previous buttons */
-	/* overflow-x: scroll; */
 	scrollbar-width: none;
 	scroll-snap-type: x proximity;
 
-	::-webkit-scrollbar {
+	&::-webkit-scrollbar {
 		display: none;
 	}
 
@@ -113,8 +112,6 @@ header {
 
 :is(.next, .previous) {
 	display: block;
-	inline-size: 32px;
-	block-size: 32px;
 	position: absolute;
 	inset: 26px 0 0 auto;
 	block-size: calc(100% - 26px);
