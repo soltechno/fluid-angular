@@ -54,14 +54,7 @@ button {
 	padding: 14px 0;
 	inline-size: 100%;
 	margin-block-end: 10px;
-	background-color: var(--button-bg-color);
-	color: var(--button-color);
 	border-radius: 100px;
-	transition: var(--transition-background);
-
-	&:hover {
-		background-color: var(--button-bg-color-hover);
-	}
 }
 
 p {

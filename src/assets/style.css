@@ -123,6 +123,13 @@ select {
 
 button {
 	cursor: pointer;
+	background-color: var(--button-bg-color);
+	color: var(--button-color);
+	transition: var(--transition-background);
+
+	&:hover {
+		background-color: var(--button-bg-color-hover);
+	}
 }
 
 

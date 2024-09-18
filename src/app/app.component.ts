@@ -33,7 +33,7 @@ export class AppComponent implements OnInit, OnDestroy {
 	baseBg: string = '#fff';
 	zeroBg: string = '#EAF0F5';
 	colorPrimary: string = '63, 104, 245';
-	colorOverlay: string = '32, 41, 57';
+	colorOverlay: string = '2, 43, 92';
 	inputBorder: string = '#CDD5DF';
 	inputPlaceholder: string = '#C9D0DA';
 	pillBg: string = '#F8F8F8';

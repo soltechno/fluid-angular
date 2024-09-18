@@ -120,8 +120,6 @@ header {
 
 .cta {
 	border-radius: 38px;
-	background-color: var(--button-bg-color);
-	color: var(--button-color);
 	padding: 8px 22px;
 	font-weight: 700;
 	font-size: 12px;

@@ -10,17 +10,11 @@ div {
 
 button {
 	border-radius: 38px;
-	background-color: var(--button-bg-color);
-	color: var(--button-color);
 	padding: 8px 29px;
 	font-weight: 700;
 	font-size: 12px;
 	line-height: 16px;
-	transition: var(--transition-background);
 
-	&:hover {
-		background-color: var(--button-bg-color-hover);
-	}
 }
 
 input {
