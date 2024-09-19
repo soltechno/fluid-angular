@@ -27,7 +27,7 @@ dialog::backdrop {
 }
 
 dialog {
-	background-color: var(--zero-bg);
+	background-color: var(--base-bg);
 	border-radius: 20px;
 	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 	inline-size: 500px;
@@ -50,21 +50,22 @@ dialog h2 {
 }
 
 dialog header button {
-	background-color: var(--zero-bg);
+	background-color: var(--base-bg);
 	inline-size: 24px;
 	block-size: 24px;
 }
 
 dialog .content {
-
 	padding: 0 16px 16px;
 
 	button {
+		background-color: var(--pills-bg);
 		padding: 12px 22px;
 		font-size: 14px;
 		border-radius: 38px;
 		line-height: 16px;
 		font-weight: 700;
+		color: var(--color-pill-text);
 	}
 }
 
