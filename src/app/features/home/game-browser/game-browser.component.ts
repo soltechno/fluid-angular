@@ -27,24 +27,24 @@ export class GameBrowserComponent {
 	}
 
 	private initializeItems(): void {
-		const numbers: string[] = Array.from({ length: 22 }, (_, i) => (i + 1).toString());
+		const numbers: string[] = Array.from({ length: 23 }, (_, i) => (i + 1).toString());
 		const shuffledNumbersNew: string[] = this.shuffle([...numbers]);
 		const shuffledNumbersPopular: string[] = this.shuffle([...numbers]);
 		const shuffledNumbersSlot: string[] = this.shuffle([...numbers]);
 
 		this.itemsNew = shuffledNumbersNew.map((num: string) => ({
 			link: `GameplayComponent`,
-			image: `/assets/thumbnails/${num}.jpg`
+			image: `/assets/thumbnails/${num}.webp`
 		}));
 
 		this.itemsPopular = shuffledNumbersPopular.map((num: string) => ({
 			link: `GameplayComponent`,
-			image: `/assets/thumbnails/${num}.jpg`
+			image: `/assets/thumbnails/${num}.webp`
 		}));
 
 		this.itemsSlot = shuffledNumbersSlot.map((num: string) => ({
 			link: `GameplayComponent`,
-			image: `/assets/thumbnails/${num}.jpg`
+			image: `/assets/thumbnails/${num}.webp`
 	}));
 	}
 }
