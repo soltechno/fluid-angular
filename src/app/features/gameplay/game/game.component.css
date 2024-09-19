@@ -23,4 +23,8 @@
 	flex-direction: column;
 	gap: 16px;
 	inline-size: 45px;
+
+	button {
+		background-color: transparent;
+	}
 }
