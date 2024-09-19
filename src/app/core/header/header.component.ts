@@ -18,6 +18,13 @@ export class HeaderComponent implements OnInit, OnDestroy {
 		this.walletClicked.emit();
 	}
 
+	// Output event emitter for help click
+	@Output() helpClicked = new EventEmitter<void>();
+
+	onHelpClick() {
+		this.helpClicked.emit();
+	}
+
 	// Set the current time
 	currentTime: string = '';
 	private intervalId: any;

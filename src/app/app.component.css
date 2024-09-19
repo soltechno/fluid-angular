@@ -20,3 +20,64 @@
 		}
 	}
 }
+
+dialog::backdrop {
+	background: rgba(var(--color-overlay), 0.6);
+	backdrop-filter: blur(3px);
+}
+
+dialog {
+	background-color: var(--zero-bg);
+	border-radius: 20px;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+	inline-size: 500px;
+	padding: 0;
+}
+
+dialog header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid #DDE8F5;
+	margin-block-end: 16px;
+	padding: 16px;
+}
+
+dialog h2 {
+	font-size: 18px;
+	font-weight: 600;
+	color: var(--text-color-primary)
+}
+
+dialog header button {
+	background-color: var(--zero-bg);
+	inline-size: 24px;
+	block-size: 24px;
+}
+
+dialog .content {
+
+	padding: 0 16px 16px;
+
+	button {
+		padding: 12px 22px;
+		font-size: 14px;
+		border-radius: 38px;
+		line-height: 16px;
+		font-weight: 700;
+	}
+}
+
+dialog :is(.main-action, .secondary-action) {
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+dialog .main-action {
+	border-bottom: 1px solid #DDE8F5;
+	margin-block-end: 16px;
+	padding-block-end: 16px;
+}
+
+

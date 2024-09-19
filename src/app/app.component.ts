@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, CUSTOM_ELEMENTS_SCHEMA, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, NavigationEnd, Event as RouterEvent, RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
 import { filter } from 'rxjs/operators';
@@ -21,7 +21,7 @@ import { FooterComponent } from './core/footer/footer.component';
 	styleUrls: ['./app.component.css'],
 	schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 	// Set the CSS custom properties.
 	// The values will come from the CMS at some point
 	// The values are transformed to CSS variables in app.component.html
@@ -118,6 +118,11 @@ export class AppComponent implements OnInit, OnDestroy {
 		if (this.fluidWidgetRef) {
 			this.addEventListeners();
 		}
+
+		// Ensure the dialog element is available after view initialization
+		if (!this.settingsDialog) {
+			console.error('Dialog element not found from ngAfterViewInit');
+		}
 	}
 
 	ngOnDestroy() {
@@ -189,4 +194,30 @@ export class AppComponent implements OnInit, OnDestroy {
 	onError(event: CustomEvent<any>) {
 		console.error('Fluid ERROR:', event.detail);
 	}
+
+	// Settings dialog
+	@ViewChild('settings') settingsDialog!: ElementRef<HTMLDialogElement>;
+
+
+	openSettings() {
+		console.log('test');
+		if (this.settingsDialog && this.settingsDialog.nativeElement) {
+			this.settingsDialog.nativeElement.showModal(); // Opens the settings dialog
+		} else {
+			console.error('Dialog element not found');
+		}
+	}
+
+	closeSettings() {
+		if (this.settingsDialog && this.settingsDialog.nativeElement) {
+			this.settingsDialog.nativeElement.close(); // Closes the settings dialog
+		} else {
+			console.error('Dialog element not found');
+		}
+	}
+
+	// closeSettings() {
+	// 	this.settingsDialog.close(); // Closes the settings dialog
+	// }
+
 }

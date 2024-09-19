@@ -15,11 +15,54 @@
 	 [style.--pills-bg]="pillBg"
 	 [style.--color-card-start]="colorCardStart"
 	 [style.--color-card-stop]="colorCardStop">
-	<app-header [balance]="balance" (walletClicked)="deposit()"></app-header>
+	<app-header [balance]="balance" (walletClicked)="deposit()" (helpClicked)="openSettings()"></app-header>
 	<main>
 		<router-outlet (activate)="onActivate($event)"></router-outlet>
 	</main>
 	<app-footer></app-footer>
+
+	<!-- Dialog HTML -->
+	<dialog #settings>
+		<header>
+			<h2>Settings</h2>
+			<button type="button" (click)="closeSettings()">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+					<path fill="#B5C3D3" fill-rule="evenodd"
+						  d="M18.707 5.293a1 1 0 0 1 0 1.414l-12 12a1 1 0 0 1-1.414-1.414l12-12a1 1 0 0 1 1.414 0Z"
+						  clip-rule="evenodd" />
+					<path fill="#B5C3D3" fill-rule="evenodd"
+						  d="M5.293 5.293a1 1 0 0 1 1.414 0l12 12a1 1 0 0 1-1.414 1.414l-12-12a1 1 0 0 1 0-1.414Z"
+						  clip-rule="evenodd" />
+				</svg>
+			</button>
+		</header>
+
+		<div class="content">
+			<div class="main-action">
+				<button (click)="withdraw()">
+					Withdrawal
+				</button>
+
+				<button (click)="quickDeposit()">
+					Quick Deposit
+				</button>
+			</div>
+
+			<div class="secondary-action">
+				<button (click)="setLoggedIn(!loggedIn)">
+					{{ loggedIn ? 'Log out' : 'Log in' }}
+				</button>
+
+				<button type="button" (click)="setDepositLimit()">
+					Set deposit limit
+				</button>
+
+				<button type="button" (click)="changeUser()">
+					Change user
+				</button>
+			</div>
+		</div>
+	</dialog>
 
 	<div *ngIf="loggedIn">
 		<fluid-widget
@@ -42,66 +85,3 @@
 		</fluid-widget>
 	</div>
 </div>
-
-<!-- <main class="main">
-  <div class="container">
-	<h1>
-	  <img src="assets/logo-mark-light.png" alt="Fluid" width="48">
-	  Fluid - Angular Integration
-	</h1>
-
-	<div style="margin-bottom: 1rem;">
-	  <button (click)="setLoggedIn(!loggedIn)">
-		{{ loggedIn ? 'Log out' : 'Log in' }}
-	  </button>
-	</div>
-
-	<div style="margin-bottom: 1rem;">
-	  <button (click)="wallet()">
-		Wallet
-	  </button>
-	</div>
-	<div style="margin-bottom: 1rem;">
-	  <button (click)="deposit()">
-		Deposit
-	  </button>
-	</div>
-	<div style="margin-bottom: 1rem;">
-	  <button (click)="withdraw()">
-		Withdrawal
-	  </button>
-	</div>
-	<div style="margin-bottom: 1rem;">
-	  <button (click)="quickDeposit()">
-		Quick Deposit
-	  </button>
-	</div>
-
-	<div style="margin-bottom: 1rem;">
-	  <button (click)="addBonuses()">
-		Add bonuses
-	  </button>
-	</div>
-
-	<div style="margin-bottom: 1rem;">
-	  <button (click)="setDepositLimit()">
-		Set deposit limit
-	  </button>
-	</div>
-
-	<div style="margin-bottom: 1rem;">
-	  <button (click)="changeUser()">
-		Change user
-	  </button>
-	</div>
-
-	<div *ngIf="loggedIn">
-	  <fluid-widget #fluidWidgetRef id="fluid-widget" [attr.operator-id]="operatorId" [attr.user-id]="userId"
-					[attr.session-id]="sessionId" locale="en-NZ" currency="EUR" country="IRL" user-data="{}"
-					[attr.open]="isOpen" balance="1000" withdrawable-balance="900" mode="wave"
-					[attr.deposit-limit]="depositLimit" selected-bonus="" [attr.bonuses]="bonuses" success-cta-link=""
-					user-agent="iOS">
-	  </fluid-widget>
-	</div>
-  </div>
-</main> -->
