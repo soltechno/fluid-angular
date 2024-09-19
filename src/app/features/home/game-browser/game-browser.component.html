@@ -7,7 +7,7 @@
 		<ul class="browser__row" role="list">
 			<li *ngFor="let item of itemsNew; let i = index">
 				<a routerLink="gameplay" id="item{{i + 1}}">
-					<img [src]="item.image" alt="Game {{i + 1}}">
+					<img [src]="item.image" alt="Game {{i + 1}}" width="392" height="499">
 					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" class="play">
 						<rect width="32" height="32" fill="#121926" rx="16" />
 						<path fill="#fff" fill-rule="evenodd"
@@ -35,7 +35,7 @@
 		<ul class="browser__row" role="list">
 			<li *ngFor="let item of itemsPopular; let i = index">
 				<a routerLink="gameplay" id="item{{i + 1}}">
-					<img [src]="item.image" alt="Game {{i + 1}}">
+					<img [src]="item.image" alt="Game {{i + 1}}" width="392" height="499">
 					<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="none" class="play">
 						<rect width="32" height="32" fill="#121926" rx="16" />
 						<path fill="#fff" fill-rule="evenodd"
