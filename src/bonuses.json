@@ -27,7 +27,7 @@
 				{ "providerType": "WEBREDIRECT", "service": "BLIXTPAY" }
 			]
 		},
-        "selected": false
+        "selected": true
 	},
 	{
 		"code": "LoginBonus",
