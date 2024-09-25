@@ -17,7 +17,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
     transaction = 'deposit';
     bonuses: any = null;
-    loggedIn = true;
+    loggedIn = false;
 
     operatorId: string | null = null;
     userId: string | null = null;
