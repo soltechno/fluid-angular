@@ -11,7 +11,8 @@
 			"applyTo": [
 				{ "providerType": "CREDITCARD" }
 			]
-		}
+		},
+        "selected": false
 	},
 	{
 		"code": "DepositBonus",
@@ -25,7 +26,8 @@
 				{ "providerType": "CREDITCARD" },
 				{ "providerType": "WEBREDIRECT", "service": "BLIXTPAY" }
 			]
-		}
+		},
+        "selected": true
 	},
 	{
 		"code": "LoginBonus",
@@ -40,6 +42,7 @@
 				{ "providerType": "JETON" },
 				{ "providerType": "SKRILLQCO", "service": "NETELLER" }
 			]
-		}
+		},
+        "selected": false
 	}
 ]
