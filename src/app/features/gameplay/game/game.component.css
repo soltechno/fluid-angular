@@ -1,0 +1,30 @@
+.game-mobile {
+	@media (min-width:961px) {
+		display: none;
+	}
+}
+
+.game {
+	display: none;
+
+	@media (min-width:961px) {
+		display: grid;
+		grid-template-columns: 1fr 45px;
+		background-color: rgba(var(--color-overlay), 0.6);
+		padding: 12px 0 12px 16px;
+		border-radius: 10px;
+		max-inline-size: 1197px;
+		margin-inline: auto;
+	}
+}
+
+.game__tools {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	inline-size: 45px;
+
+	button {
+		background-color: transparent;
+	}
+}

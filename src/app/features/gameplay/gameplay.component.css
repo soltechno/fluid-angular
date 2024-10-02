@@ -1,0 +1,12 @@
+@media (min-width:961px) {
+	.content {
+		display: flex;
+		flex-direction: column;
+		block-size: 100vh;
+	}
+
+	.game-wrapper {
+		margin-block-end: auto; /* To set the navigation at the bottom */
+	}
+}
+

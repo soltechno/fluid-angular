@@ -1,17 +1,194 @@
-body {
-  margin: 0;
-  min-width: 320px;
-
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* inter-regular - latin */
+@font-face {
+	font-weight: 400;
+	font-family: Inter;
+	font-style: normal;
+	src: url('./fonts/inter-v13-latin-regular.woff2') format('woff2');
+	font-display: swap;
 }
+
+/* inter-500 - latin */
+@font-face {
+	font-weight: 500;
+	font-family: Inter;
+	font-style: normal;
+	src: url('./fonts/inter-v13-latin-500.woff2') format('woff2');
+	font-display: swap;
+}
+
+/* inter-600 - latin */
+@font-face {
+	font-weight: 600;
+	font-family: Inter;
+	font-style: normal;
+	src: url('./fonts/inter-v13-latin-600.woff2') format('woff2');
+	font-display: swap;
+}
+
+/* inter-700 - latin */
+@font-face {
+	font-weight: 700;
+	font-family: Inter;
+	font-style: normal;
+	src: url('./fonts/inter-v13-latin-700.woff2') format('woff2');
+	font-display: swap;
+}
+
+/* inter-900 - latin */
+@font-face {
+	font-weight: 900;
+	font-family: Inter;
+	font-style: normal;
+	src: url('./fonts/inter-v18-latin-900.woff2') format('woff2');
+	font-display: swap;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+	text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+	margin-block: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+	margin: 0;
+	padding: 0;
+
+	list-style: none;
+}
+
+/* Set core body defaults */
+body {
+	min-block-size: 100vh;
+	margin: 0;
+}
+
+/* Balance text wrapping on headings */
+h1,
+h2,
+h3,
+h4 {
+	text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+	text-decoration-skip-ink: auto;
+
+	color: currentcolor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+	block-size: auto;
+	max-inline-size: 100%;
+
+	font-style: italic;
+	vertical-align: middle;
+
+	background-repeat: no-repeat;
+	background-size: cover;
+	shape-margin: 0.75rem;
+}
+
+/* Inherit fonts for inputs and buttons */
+fieldset,
+legend,
+input,
+button,
+textarea,
+select {
+	margin: 0;
+	padding: 0;
+
+	font: inherit;
+
+	border: 0;
+
+	background-color: transparent;
+}
+
+button {
+	cursor: pointer;
+	background-color: var(--button-bg-color);
+	color: var(--button-color);
+	transition: var(--transition-background);
+
+	&:hover {
+		background-color: var(--button-bg-color-hover);
+	}
+}
+
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+	scroll-margin-block: 5ex;
+}
+
+body {
+	margin: 0;
+	min-width: 320px;
+
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
+
+	color-scheme: light dark;
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	text-decoration: none;
+}
+
+.visually-hidden {
+	position: absolute;
+
+	inline-size: 1px;
+	block-size: 1px;
+
+	white-space: nowrap;
+
+	overflow: hidden;
+
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+}
+
+.container {
+	inline-size: 100%;
+	max-inline-size: 1164px;
+	margin-inline: auto;
+
+	@media (min-width:961px) {
+		padding-inline: 32px;
+	}
+}
+
+

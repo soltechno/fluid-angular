@@ -1,0 +1,23 @@
+:host {
+	display: block;
+}
+
+.body {
+	min-block-size: 100vh;
+	background-color: var(--zero-bg);
+	color: var(--text-color-primary);
+
+	@media (min-width:961px) {
+		display: grid;
+		grid-template-columns: 230px 1fr;
+	}
+}
+
+@media (min-width:961px) {
+	.content {
+		max-inline-size: 1100px;
+		padding-block-start: 16px;
+		padding-inline: 32px;
+		margin-inline: auto;
+	}
+}

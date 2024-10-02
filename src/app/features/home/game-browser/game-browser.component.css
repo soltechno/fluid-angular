@@ -1,0 +1,126 @@
+:host {
+	display: block;
+}
+
+section {
+	padding-block: 22px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px
+}
+
+.browser {
+	position: relative; /*  To set the position of the next and previous buttons */
+}
+
+
+header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 16px;
+	margin-block-end: 10px;
+
+	@media (min-width:961px) {
+		padding: 0;
+	}
+
+	h2 {
+		text-transform: uppercase;
+	}
+
+  p {
+	color: var(--text-color-secondary);
+  }
+}
+
+:is(h2,p) {
+	font-weight: 700;
+	font-size: 12px;
+	line-height: 16px;
+}
+
+.browser__row {
+	display: flex;
+	flex-wrap: nowrap;
+	overflow: auto;
+	gap: 8px;
+	padding-inline-start: 16px;
+	position: relative; /*  To set the position of the next and previous buttons */
+	scrollbar-width: none;
+	scroll-snap-type: x proximity;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	@media (min-width:961px) {
+		padding-inline-start: 0;
+	}
+
+	li {
+		flex: 0 0 auto;
+		scroll-snap-align: center;
+	}
+
+	a {
+		block-size: 126px;
+		inline-size: 96px;
+		display: block;
+		position: relative; /*/ to set the svg position */
+
+		&::after {
+			content: '';
+			position: absolute;
+			inset: 0;
+			border-radius: 12px;
+			background-color: rgba(var(--color-overlay), 0.6);
+			opacity: 0;
+			transition: var(--transition-fade);
+		}
+
+		&:hover {
+			&::after {
+				opacity: 1;
+			}
+			svg {
+				opacity: 1;
+			}
+		}
+
+		@media (min-width:961px) {
+			block-size: 162px;
+			inline-size: 124px;
+		}
+	}
+
+	img {
+		border-radius: 12px;
+		block-size: 100%;;
+	}
+
+	.play {
+		display: block;
+		position: absolute;
+		z-index: 2;
+		inset: 50% 0 0 50%;
+		transform: translate(-50%, -50%);
+		opacity: 0;
+		transition: var(--transition-fade);
+	}
+}
+
+:is(.next, .previous) {
+	display: block;
+	position: absolute;
+	inset: 26px 0 0 auto;
+	block-size: calc(100% - 26px);
+	inline-size: 46px;
+}
+
+.next {
+	inset-inline: auto 0;
+	background: linear-gradient(270deg, rgba(2, 43, 92, 0.6) 0%, rgba(2, 43, 92, 0) 100%);
+}
+
+

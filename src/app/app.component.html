@@ -1,65 +1,88 @@
-<main class="main">
-  <div class="container">
-    <h1>
-      <img src="assets/logo-mark-light.png" alt="Fluid" width="48">
-      Fluid - Angular Integration
-    </h1>
+<div
+	 class="body"
+	 [ngClass]="currentPage"
+	 [style.--button-bg-color]="buttonBgColor"
+	 [style.--button-bg-color-hover]="buttonBgColorHover"
+	 [style.--button-color]="buttonColor"
+	 [style.--text-color-primary]="textcolorPrimary"
+	 [style.--text-color-secondary]="textcolorSecondary"
+	 [style.--base-bg]="baseBg"
+	 [style.--zero-bg]="zeroBg"
+	 [style.--color-primary]="colorPrimary"
+	 [style.--color-overlay]="colorOverlay"
+	 [style.--input-border]="inputBorder"
+	 [style.--input-placeholder]="inputPlaceholder"
+	 [style.--pills-bg]="pillBg"
+	 [style.--color-pill-text]="pillColor"
+	 [style.--color-card-start]="colorCardStart"
+	 [style.--color-card-stop]="colorCardStop">
+	<app-header [balance]="balance" (walletClicked)="deposit()" (helpClicked)="openSettings()"></app-header>
+	<main>
+		<router-outlet (activate)="onActivate($event)"></router-outlet>
+	</main>
+	<app-footer></app-footer>
 
-    <div style="margin-bottom: 1rem;">
-      <button (click)="setLoggedIn(!loggedIn)">
-        {{ loggedIn ? 'Log out' : 'Log in' }}
-      </button>
-    </div>
+	<!-- Dialog HTML -->
+	<dialog #settings>
+		<header>
+			<h2>Settings</h2>
+			<button type="button" (click)="closeSettings()">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+					<path fill="#B5C3D3" fill-rule="evenodd"
+						  d="M18.707 5.293a1 1 0 0 1 0 1.414l-12 12a1 1 0 0 1-1.414-1.414l12-12a1 1 0 0 1 1.414 0Z"
+						  clip-rule="evenodd" />
+					<path fill="#B5C3D3" fill-rule="evenodd"
+						  d="M5.293 5.293a1 1 0 0 1 1.414 0l12 12a1 1 0 0 1-1.414 1.414l-12-12a1 1 0 0 1 0-1.414Z"
+						  clip-rule="evenodd" />
+				</svg>
+			</button>
+		</header>
 
-    <div style="margin-bottom: 1rem;">
-      <button (click)="wallet()">
-        Wallet
-      </button>
-    </div>
-    <div style="margin-bottom: 1rem;">
-      <button (click)="deposit()">
-        Deposit
-      </button>
-    </div>
-    <div style="margin-bottom: 1rem;">
-      <button (click)="withdraw()">
-        Withdrawal
-      </button>
-    </div>
-    <div style="margin-bottom: 1rem;">
-      <button (click)="quickDeposit()">
-        Quick Deposit
-      </button>
-    </div>
+		<div class="content">
+			<div class="main-action">
+				<button (click)="withdraw()">
+					Withdrawal
+				</button>
 
-    <div style="margin-bottom: 1rem;">
-      <button (click)="addBonuses()">
-        Add bonuses
-      </button>
-    </div>
+				<button (click)="quickDeposit()">
+					Quick Deposit
+				</button>
+			</div>
 
-    <div style="margin-bottom: 1rem;">
-      <button (click)="setDepositLimit()">
-        Set deposit limit
-      </button>
-    </div>
+			<div class="secondary-action">
+				<button (click)="setLoggedIn(!loggedIn)">
+					{{ loggedIn ? 'Log out' : 'Log in' }}
+				</button>
 
-    <div style="margin-bottom: 1rem;">
-      <button (click)="changeUser()">
-        Change user
-      </button>
-    </div>
+				<button type="button" (click)="setDepositLimit()">
+					Set deposit limit
+				</button>
 
-    <div *ngIf="loggedIn">
-      <fluid-widget #fluidWidgetRef id="fluid-widget" [attr.operator-id]="operatorId" [attr.user-id]="userId"
-                    [attr.session-id]="sessionId" locale="en-NZ" currency="EUR" country="IRL" user-data="{}"
-                    [attr.open]="isOpen" balance="1000" withdrawable-balance="900" mode="wave"
-                    [attr.deposit-limit]="depositLimit" [attr.bonuses]="bonuses" success-cta-link=""
-                    user-agent="iOS">
-      </fluid-widget>
-    </div>
-  </div>
-</main>
+				<button type="button" (click)="changeUser()">
+					Change user
+				</button>
+			</div>
+		</div>
+	</dialog>
 
-<!-- If you're using Angular Router, <router-outlet> works as the placeholder for routed components -->
-<router-outlet></router-outlet>
+	<div *ngIf="loggedIn">
+		<fluid-widget
+					  #fluidWidgetRef id="fluid-widget"
+					  [attr.operator-id]="operatorId"
+					  [attr.user-id]="userId"
+					  [attr.session-id]="sessionId"
+					  locale="en-NZ"
+					  currency="EUR"
+					  country="IRL"
+					  user-data="{}"
+					  [attr.open]="isOpen"
+					  [attr.balance]="balance"
+					  withdrawable-balance="900"
+					  [attr.deposit-limit]="depositLimit"
+					  [attr.bonuses]="bonuses"
+					  success-cta-link=""
+					  user-agent="iOS"
+					  [attr.transaction]="transaction">
+		</fluid-widget>
+	</div>
+</div>

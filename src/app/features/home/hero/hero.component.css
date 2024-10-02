@@ -1,0 +1,64 @@
+section {
+	/* background-image: url('/assets/hero/icons.webp'); */
+
+	display: flex;
+	place-content: center;
+	padding: 45px 55px;
+	background:
+		url('/assets/hero/icons.webp'),
+		linear-gradient(108.44deg, var(--color-card-start) 3.14%, var(--color-card-stop) 100.24%);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
+
+	@media (min-width:961px) {
+		border-radius: 30px;
+		padding: 65px 0;
+		margin-block-start: 16px;
+		background-size: 50% 100%, 100% 100%;
+	}
+}
+
+div {
+	background-color: rgba(var(--color-overlay), 0.6);
+	border-radius: 20px;
+	color: #fff;
+	padding: 32px 35px;
+	text-align: center;
+
+	@media (min-width:961px) {
+		inline-size: 304px;
+	}
+}
+
+h1 {
+	font-size: 18px;
+	line-height: 26px;
+	font-weight: 900;
+	margin-block-end: 12px;
+	text-transform: uppercase;
+}
+
+h2 {
+	font-size: 24px;
+	line-height: 29px;
+	font-weight: 700;
+	margin-block-end: 12px;
+}
+
+button {
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: 700;
+	padding: 14px 0;
+	inline-size: 100%;
+	margin-block-end: 10px;
+	border-radius: 100px;
+}
+
+p {
+	font-size: 11px;
+	line-height: 14px;
+	font-weight: 400;
+}
