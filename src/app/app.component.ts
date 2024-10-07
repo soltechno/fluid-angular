@@ -71,6 +71,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 	sessionId: string | null = null;
 	depositLimit: number | string = "";
 	balance: number = 1000;
+	withdrawableBalance: number = 1000;
 
 	isOpen = false;
 
@@ -205,8 +206,23 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
 	onInfo(event: CustomEvent<any>) {
 		console.info('%cFluid INFO:', 'color: cornflowerblue', event.detail);
+
 		if (event.detail.message === 'internal-operation-change') {
 			this.transaction = event.detail.transactionType;
+		}
+
+		switch (event.detail.message) {
+			case 'deposit-success':
+				this.balance = this.balance ? Number(this.balance) : 0;
+				const topup = Number(event.detail.amount);
+				this.balance += topup;
+				break;
+			case 'withdrawal-success':
+				this.balance = this.balance ? Number(this.balance) : 0;
+				this.balance -= Number(event.detail.amount);
+				break;
+			default:
+				break;
 		}
 	}
 
