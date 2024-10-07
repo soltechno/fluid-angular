@@ -219,7 +219,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
 
 	openSettings() {
-		console.log('test');
 		if (this.settingsDialog && this.settingsDialog.nativeElement) {
 			this.settingsDialog.nativeElement.showModal(); // Opens the settings dialog
 		} else {
