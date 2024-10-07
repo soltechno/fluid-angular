@@ -147,6 +147,11 @@ button {
 	scroll-margin-block: 5ex;
 }
 
+html,
+body {
+	scrollbar-gutter: stable;
+}
+
 body {
 	margin: 0;
 	min-width: 320px;
