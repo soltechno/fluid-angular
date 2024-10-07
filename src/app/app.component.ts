@@ -1,6 +1,21 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, CUSTOM_ELEMENTS_SCHEMA, AfterViewInit } from '@angular/core';
+import {
+	AfterViewInit,
+	Component,
+	CUSTOM_ELEMENTS_SCHEMA,
+	ElementRef,
+	OnDestroy,
+	OnInit,
+	ViewChild
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router, NavigationEnd, Event as RouterEvent, RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import {
+	Event as RouterEvent,
+	NavigationEnd,
+	Router,
+	RouterLink,
+	RouterLinkActive,
+	RouterOutlet
+} from '@angular/router';
 import { filter } from 'rxjs/operators';
 import bonusData from '../bonuses.json';
 import { HeaderComponent } from './core/header/header.component';
@@ -190,6 +205,9 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
 	onInfo(event: CustomEvent<any>) {
 		console.info('%cFluid INFO:', 'color: cornflowerblue', event.detail);
+		if (event.detail.message === 'internal-operation-change') {
+			this.transaction = event.detail.transactionType;
+		}
 	}
 
 	onError(event: CustomEvent<any>) {
