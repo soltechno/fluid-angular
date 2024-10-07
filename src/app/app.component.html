@@ -40,25 +40,25 @@
 
 		<div class="content">
 			<div class="main-action">
-				<button (click)="withdraw()">
+				<button (click)="withdraw(); closeSettings()">
 					Withdrawal
 				</button>
 
-				<button (click)="quickDeposit()">
+				<button (click)="quickDeposit(); closeSettings()">
 					Quick Deposit
 				</button>
 			</div>
 
 			<div class="secondary-action">
-				<button (click)="setLoggedIn(!loggedIn)">
+				<button (click)="setLoggedIn(!loggedIn); closeSettings()">
 					{{ loggedIn ? 'Log out' : 'Log in' }}
 				</button>
 
-				<button type="button" (click)="setDepositLimit()">
+				<button type="button" (click)="setDepositLimit(); closeSettings()">
 					Set deposit limit
 				</button>
 
-				<button type="button" (click)="changeUser()">
+				<button type="button" (click)="changeUser(); closeSettings()">
 					Change user
 				</button>
 			</div>
