@@ -114,7 +114,8 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 		if (Array.isArray(bonusData) && bonusData.length > 0) {
 			(bonusData[0] as any).selected = true;
 			this.bonuses = JSON.stringify(bonusData);
-			this.deposit();
+			this.transaction = 'deposit';
+			this.isOpen = true;
 		}
 	}
 
@@ -169,6 +170,11 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 	}
 
 	deposit() {
+		// Remove the selected bonus if needed
+		if (Array.isArray(bonusData) && bonusData.length > 0) {
+			(bonusData[0] as any).selected = false;
+			this.bonuses = JSON.stringify(bonusData);
+		}
 		this.transaction = 'deposit';
 		this.isOpen = true;
 	}
