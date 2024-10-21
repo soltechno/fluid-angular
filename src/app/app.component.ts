@@ -88,7 +88,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 		// Binding the wallet attributes
 		this.operatorId = '10000001';
 		this.userId = '10000';
-		this.sessionId = 'a-session';
+		this.sessionId = this.generateSessionId();
 		this.bonuses = JSON.stringify(bonusData);
 		this.depositLimit = "";
 		this.transaction = "";
@@ -115,7 +115,8 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 		if (Array.isArray(bonusData) && bonusData.length > 0) {
 			(bonusData[0] as any).selected = true;
 			this.bonuses = JSON.stringify(bonusData);
-			this.deposit();
+			this.transaction = 'deposit';
+			this.isOpen = true;
 		}
 	}
 
@@ -170,6 +171,11 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 	}
 
 	deposit() {
+		// Remove the selected bonus if needed
+		if (Array.isArray(bonusData) && bonusData.length > 0) {
+			(bonusData[0] as any).selected = false;
+			this.bonuses = JSON.stringify(bonusData);
+		}
 		this.transaction = 'deposit';
 		this.isOpen = true;
 	}
@@ -250,8 +256,13 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 		}
 	}
 
-	// closeSettings() {
-	// 	this.settingsDialog.close(); // Closes the settings dialog
-	// }
+	generateSessionId() {
+		const prefix = '10002PW-';
+		const hash = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+		return prefix + hash;
+	}
 
+	resetToFtd() {
+		this.sessionId = this.generateSessionId();
+	}
 }
