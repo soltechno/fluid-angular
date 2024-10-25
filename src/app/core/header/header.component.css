@@ -32,6 +32,8 @@ header {
 		justify-content: flex-start;
 
 		padding: 24px 36px;
+		position: sticky;
+		top: 0;
 	}
 }
 
