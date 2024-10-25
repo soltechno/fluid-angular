@@ -202,6 +202,13 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 		this.isOpen = false;
 	}
 
+	pendingWithdrawal() {
+		this.userId = 'EVRb5KCu9ya6dLEQfvHJ';
+		this.sessionId = this.generateSessionId();
+		this.transaction = 'withdrawal';
+		this.isOpen = true;
+	}
+
 	onCommand(event: CustomEvent<any>) {
 		console.info('%cFluid COMMAND:', 'color: lightgreen', event.detail);
 
