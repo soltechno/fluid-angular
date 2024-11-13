@@ -48,8 +48,12 @@
 					Quick Deposit
 				</button>
 
-				<button (click)="resetToFtd()">
+				<button (click)="resetToFtd(); closeSettings()">
 					Reset to FTD
+				</button>
+
+				<button (click)="pendingWithdrawal(); closeSettings()">
+					Cancel Pending Withdrawal
 				</button>
 			</div>
 

@@ -202,6 +202,13 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 		this.isOpen = false;
 	}
 
+	pendingWithdrawal() {
+		this.userId = 'EVRb5KCu9ya6dLEQfvHJ';
+		this.sessionId = this.generateSessionId('PD10001-');
+		this.transaction = 'withdrawal';
+		this.isOpen = true;
+	}
+
 	onCommand(event: CustomEvent<any>) {
 		console.info('%cFluid COMMAND:', 'color: lightgreen', event.detail);
 
@@ -226,6 +233,10 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 			case 'withdrawal-success':
 				this.balance = this.balance ? Number(this.balance) : 0;
 				this.balance -= Number(event.detail.amount);
+				break;
+			case 'withdrawal-cancelled':
+				this.balance = this.balance ? Number(this.balance) : 0;
+				this.balance += Number(event.detail.withdrawalAmount);
 				break;
 			default:
 				break;
@@ -256,8 +267,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 		}
 	}
 
-	generateSessionId() {
-		const prefix = '10002PW-';
+	generateSessionId(prefix = '10002PW-') {
 		const hash = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 		return prefix + hash;
 	}
