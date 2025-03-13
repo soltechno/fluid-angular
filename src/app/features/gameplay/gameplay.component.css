@@ -10,3 +10,14 @@
 	}
 }
 
+.inline-quick-deposit-wrapper {
+	display: none;
+
+	@media (min-width:961px) {
+		display: block;
+		position: absolute;
+		inset: auto 1rem 3rem auto;
+		min-inline-size: 532px;
+	}
+}
+
