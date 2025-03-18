@@ -3,7 +3,7 @@ div {
 
 	@media (min-width:961px) {
 		display: flex;
-		justify-content: space-between;
+		justify-content: end;
 		margin-block: 22px 18px;
 	}
 }

@@ -1,4 +1,10 @@
-import { Component, Output, EventEmitter, CUSTOM_ELEMENTS_SCHEMA, } from '@angular/core';
+import {
+	Component,
+	Output,
+	EventEmitter,
+	CUSTOM_ELEMENTS_SCHEMA,
+	ViewChild, ElementRef
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GameComponent } from './game/game.component';
 import { FooterMobileComponent } from './footer-mobile/footer-mobile.component';
@@ -19,12 +25,26 @@ import { ToolsComponent } from './tools/tools.component';
 	styleUrl: './gameplay.component.css',
 	schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
-
 export class GameplayComponent {
 	@Output() quickDepositClicked = new EventEmitter<void>();
+	@Output() depositClicked = new EventEmitter<void>();
+	@ViewChild('fluidQuickDepositRef') fluidQuickDepositRef!: ElementRef;
 
 	onQuickDepositClick() {
 		this.quickDepositClicked.emit();
+	}
+
+	ngAfterViewInit() {
+		if (this.fluidQuickDepositRef) {
+			this.addEventListeners();
+			console.info('Fluid Quick Deposit listeners on');
+		}
+	}
+
+	ngOnDestroy() {
+		if (this.fluidQuickDepositRef) {
+			this.removeEventListeners();
+		}
 	}
 
 	transaction = 'deposit';
@@ -36,4 +56,55 @@ export class GameplayComponent {
 	depositLimit: number | string = "";
 	balance: number = 1000;
 	withdrawableBalance: number = 1000;
+
+	addEventListeners() {
+		this.fluidQuickDepositRef.nativeElement.addEventListener('fluid-command', this.onCommand.bind(this));
+		this.fluidQuickDepositRef.nativeElement.addEventListener('fluid-info', this.onInfo.bind(this));
+		this.fluidQuickDepositRef.nativeElement.addEventListener('fluid-error', this.onError.bind(this));
+	}
+
+	removeEventListeners() {
+		this.fluidQuickDepositRef.nativeElement.removeEventListener('fluid-command', this.onCommand.bind(this));
+		this.fluidQuickDepositRef.nativeElement.removeEventListener('fluid-info', this.onInfo.bind(this));
+		this.fluidQuickDepositRef.nativeElement.removeEventListener('fluid-error', this.onError.bind(this));
+	}
+
+	onCommand(event: CustomEvent<any>) {
+		console.info('%cFluid COMMAND:', 'color: lightgreen', event.detail);
+
+		// TODO: move to info once command is changed to info in the FE
+		if (event.detail.message === 'deposit-cta-clicked' ||
+			event.detail.message === 'error-cta-clicked') {
+			this.depositClicked.emit();
+		}
+	}
+
+	onInfo(event: CustomEvent<any>) {
+		console.info('%cFluid INFO:', 'color: cornflowerblue', event.detail);
+
+		switch (event.detail.message) {
+			case 'internal-operation-change':
+				this.transaction = event.detail.transactionType;
+				break;
+			case 'deposit-success':
+				this.balance = this.balance ? Number(this.balance) : 0;
+				const topup = Number(event.detail.amount);
+				this.balance += topup;
+				break;
+			case 'withdrawal-success':
+				this.balance = this.balance ? Number(this.balance) : 0;
+				this.balance -= Number(event.detail.amount);
+				break;
+			case 'withdrawal-cancelled':
+				this.balance = this.balance ? Number(this.balance) : 0;
+				this.balance += Number(event.detail.withdrawalAmount);
+				break;
+			default:
+				break;
+		}
+	}
+
+	onError(event: CustomEvent<any>) {
+		console.error('Fluid ERROR:', event.detail);
+	}
 }

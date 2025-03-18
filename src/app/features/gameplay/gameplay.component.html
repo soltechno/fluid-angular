@@ -4,18 +4,18 @@
 		<app-game></app-game>
 		<div class="inline-quick-deposit-wrapper">
 			<fluid-quick-deposit
-								 #fluidWidgetInlineRef id="fluid-widget-inline"
-								 [attr.operator-id]="operatorId"
-								 [attr.user-id]="userId"
-								 [attr.session-id]="sessionId"
-								 locale="en"
-								 currency="EUR"
-								 country="IRL"
-								 user-data="{}"
-								 [attr.deposit-limit]="depositLimit"
-								 [attr.bonuses]="bonuses"
-								 [attr.transaction]="transaction"
-								 z-index="100">
+				#fluidQuickDepositRef id="fluid-widget-inline"
+				[attr.operator-id]="operatorId"
+				[attr.user-id]="userId"
+				[attr.session-id]="sessionId"
+				locale="en"
+				currency="EUR"
+				country="IRL"
+				user-data="{}"
+				[attr.deposit-limit]="depositLimit"
+				[attr.bonuses]="bonuses"
+				[attr.transaction]="transaction"
+				z-index="100">
 			</fluid-quick-deposit>
 		</div>
 

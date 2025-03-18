@@ -107,6 +107,12 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 				this.quickDeposit();
 			});
 		}
+
+		if (component.depositClicked) {
+			component.depositClicked.subscribe(() => {
+				this.deposit();
+			});
+		}
 	}
 
 	// Get the event from the hero component
@@ -166,10 +172,6 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 		this.userId = '10001';
 	}
 
-	wallet() {
-		this.isOpen = true;
-	}
-
 	deposit() {
 		// Remove the selected bonus if needed
 		if (Array.isArray(bonusData) && bonusData.length > 0) {
@@ -204,7 +206,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
 	pendingWithdrawal() {
 		this.userId = 'EVRb5KCu9ya6dLEQfvHJ';
-		this.sessionId = this.generateSessionId('PD10001-');
+		this.sessionId = this.generateSessionId('10001-');
 		this.transaction = 'withdrawal';
 		this.isOpen = true;
 	}
@@ -267,7 +269,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 		}
 	}
 
-	generateSessionId(prefix = '10002PW-') {
+	generateSessionId(prefix = '10001-') {
 		const hash = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
 		return prefix + hash;
 	}
