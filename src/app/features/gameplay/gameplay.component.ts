@@ -71,12 +71,6 @@ export class GameplayComponent {
 
 	onCommand(event: CustomEvent<any>) {
 		console.info('%cFluid COMMAND:', 'color: lightgreen', event.detail);
-
-		// TODO: move to info once command is changed to info in the FE
-		if (event.detail.message === 'deposit-cta-clicked' ||
-			event.detail.message === 'error-cta-clicked') {
-			this.depositClicked.emit();
-		}
 	}
 
 	onInfo(event: CustomEvent<any>) {
@@ -98,6 +92,10 @@ export class GameplayComponent {
 			case 'withdrawal-cancelled':
 				this.balance = this.balance ? Number(this.balance) : 0;
 				this.balance += Number(event.detail.withdrawalAmount);
+				break;
+			case 'deposit-cta-clicked':
+			case 'error-cta-clicked':
+				this.depositClicked.emit();
 				break;
 			default:
 				break;
