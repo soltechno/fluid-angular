@@ -7,6 +7,18 @@
 
 	.game-wrapper {
 		margin-block-end: auto; /* To set the navigation at the bottom */
+		position: relative; /* To set the inline quick deposit */
+	}
+}
+
+.inline-quick-deposit-wrapper {
+	display: none;
+
+	@media (min-width:961px) {
+		display: block;
+		position: absolute;
+		inset: calc(100% + 16px) 32px 0 auto;
+		min-inline-size: 532px;
 	}
 }
 
