@@ -206,7 +206,7 @@ export class AppComponent implements OnInit, OnDestroy, AfterViewInit {
 
 	pendingWithdrawal() {
 		this.userId = 'EVRb5KCu9ya6dLEQfvHJ';
-		this.sessionId = this.generateSessionId('10001-');
+		this.sessionId = this.generateSessionId('PD10001-');
 		this.transaction = 'withdrawal';
 		this.isOpen = true;
 	}
